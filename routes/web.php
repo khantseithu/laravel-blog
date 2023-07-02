@@ -25,7 +25,10 @@ Route::get('/posts/{post}', function($slug) {
         return redirect('https://khantseithu-automatic-zebra-wqxp9j6465xhg5v5-8000.preview.app.github.dev/');
     }
 
-    $post = file_get_contents($path);
+    $post = cache()->remember("posts.{$slug}", 5, function() use ($path) {
+        var_dump('file_get_contents');
+        return file_get_contents($path);
+    });
 
     return view('post', [
         'post' => $post
