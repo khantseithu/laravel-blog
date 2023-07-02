@@ -43,9 +43,18 @@ class Post{
     public static function find($slug){
         //  of all posts, find the one with a slug that matches the one that was requested
         $posts = static::all();
-        return $posts->firstWhere('slug', $slug);
 
-        // dd($posts->firstWhere('slug', $slug));
+        return $posts->firstWhere('slug', $slug);
+    }
+
+    public static function findOrFail($slug){
+        $posts = static::find($slug);
+
+        if(! $posts){
+            throw new ModelNotFoundException();
+        }
+
+        return $posts;
     }
 
 }
