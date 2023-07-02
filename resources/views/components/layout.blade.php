@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="/app.css"/>
 </head>
 <body>
+    <header>
+        <h1>My Blogs</h1>
+    </header>
+
     {{$slot}}
 </body>
 </html>
