@@ -17,6 +17,16 @@ Route::get('/', function () {
     return view('posts');
 });
 
-Route::get('/post', function() {
-    return view('post');
+Route::get('/posts/{post}', function($slug) {
+    $path = __DIR__ . "/../resources/posts/{$slug}.html";
+
+    if(! file_exists($path)) {
+        return redirect('https://khantseithu-automatic-zebra-wqxp9j6465xhg5v5-8000.preview.app.github.dev/');
+    }
+
+    $post = file_get_contents($path);
+
+    return view('post', [
+        'post' => $post
+    ]);
 });

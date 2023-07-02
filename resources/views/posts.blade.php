@@ -12,15 +12,15 @@
     <h1>Blog</h1>
 
     <article>
-        <h2><a href="/post">My First Post</a></h2>
+        <h2><a href="/posts/my-first-post">My First Post</a></h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas ipsam nobis, illum modi nesciunt porro amet aliquam doloribus blanditiis, quasi hic, omnis harum culpa assumenda recusandae soluta sapiente ducimus incidunt.</p>
     </article>
     <article>
-        <h2><a href="/post">My Second Post</a></h2>
+        <h2><a href="/posts/my-second-post">My Second Post</a></h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas ipsam nobis, illum modi nesciunt porro amet aliquam doloribus blanditiis, quasi hic, omnis harum culpa assumenda recusandae soluta sapiente ducimus incidunt.</p>
     </article>
     <article>
-        <h2><a href="/post">My Third Post</a></h2>
+        <h2><a href="/posts/my-third-post">My Third Post</a></h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas ipsam nobis, illum modi nesciunt porro amet aliquam doloribus blanditiis, quasi hic, omnis harum culpa assumenda recusandae soluta sapiente ducimus incidunt.</p>
     </article>
 </body>
