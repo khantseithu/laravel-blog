@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('/posts/{post}', function($slug) {
     $path = __DIR__ . "/../resources/posts/{$slug}.html";
 
+
     if(! file_exists($path)) {
         return redirect('https://khantseithu-automatic-zebra-wqxp9j6465xhg5v5-8000.preview.app.github.dev/');
     }
@@ -29,4 +30,4 @@ Route::get('/posts/{post}', function($slug) {
     return view('post', [
         'post' => $post
     ]);
-});
+})->where('post', '[A-z_\-]+');
