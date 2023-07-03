@@ -9,9 +9,12 @@
 <body>
 
     <h1><?= $post->title ?></h1>
-    <a href="category/{{$post->category->id}}">
-        {{ $post->category->title; }}
-    </a>
+    <p>
+        By <a href="/author/{{$post->author->username}}">{{ $post->author->name }}</a> in
+        <a href="/category/{{$post->category->slug}}">
+            {{ $post->category->title; }}
+        </a>
+    </p>
     <p>
         {!! $post->body; !!}
     </p>
