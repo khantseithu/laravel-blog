@@ -1,0 +1,7 @@
+Post::create([
+    'title' => 'My Hobby post',
+    'slug' => 'my-hobby-post',
+    'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.',
+    'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.',
+    'category_id' => 2,
+]);

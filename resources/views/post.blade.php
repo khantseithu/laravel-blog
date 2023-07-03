@@ -9,6 +9,9 @@
 <body>
 
     <h1><?= $post->title ?></h1>
+    <a href="category/{{$post->category->id}}">
+        {{ $post->category->title; }}
+    </a>
     <p>
         {!! $post->body; !!}
     </p>

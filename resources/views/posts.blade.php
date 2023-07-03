@@ -8,7 +8,11 @@
             {{ $post->title;}}
         </a>
     </h1>
-
+    <p>
+        <a href="category/{{$post->category->id}}">
+            {{ $post->category->title; }}
+        </a>
+    </p>
     <div>
         <?= $post->excerpt; ?>
     </div>
