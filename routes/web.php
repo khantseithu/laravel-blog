@@ -23,9 +23,10 @@ Route::get('/', function () {
     $posts = Post::latest()->with(['category','author'])->get();
 
     return view('posts', [
-        'posts' => $posts
+        'posts' => $posts,
+        'categories' => Category::all()
     ]);
-});
+})->name('home');
 
 Route::get('/posts/{post:slug}', function(Post $post) {
     // find the post by its slug and pass it to a view called "post"
@@ -40,9 +41,11 @@ Route::get('/posts/{post:slug}', function(Post $post) {
 
 Route::get('/category/{category:slug}', function(Category $category){
     return view('posts', [
-        'posts' => $category->posts
+        'posts' => $category->posts,
+        'currentCategory' => $category,
+        'categories' => Category::all()
     ]);
-});
+})->name('category');
 
 Route::get('/author/{author:username}', function(User $author){
     return view('posts', [
