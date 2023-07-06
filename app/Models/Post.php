@@ -17,13 +17,17 @@ class Post extends Model
     {
         // Post::newQuery()->filter()
         $query->when($filters['search'] ?? false, function ($query, $search) {
-            $query->where(fn($query) => $query->where('title', 'like', '%' . $search . '%')->orWhere('body', 'like', '%' . $search . '%'));
+            $query->where(fn($query) =>  $query->where(fn($query) =>
+                $query->where('title', 'like', '%' . $search . '%')
+                    ->orWhere('body', 'like', '%' . $search . '%')
+            ));
         });
 
-         $query->when($filters['category'] ?? false, function ($query, $search) {
-            $query->
-                whereHas('category', fn($query) => $query->where('slug', $search));
+        $query->when($filters['category'] ?? false, function ($query, $search) {
+            $query->whereHas('category', fn($query) => $query->where('slug', $search));
         });
+
+        $query->when($filters['author'] ?? false, fn($query, $author) => $query->whereHas('author', fn($query) => $query->where('username', $author)));
     }
 
     public function category()

@@ -25,16 +25,8 @@ Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
-// Route::get('/category/{category:slug}', function(Category $category){
+// Route::get('/author/{author:username}', function(User $author){
 //     return view('posts', [
-//         'posts' => $category->posts,
-//         'currentCategory' => $category,
-//         'categories' => Category::all()
+//         'posts' => $author->posts
 //     ]);
-// })->name('category');
-
-Route::get('/author/{author:username}', function(User $author){
-    return view('posts', [
-        'posts' => $author->posts
-    ]);
-});
+// });
