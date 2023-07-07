@@ -17,8 +17,21 @@
             </div>
 
             <div class="mt-8 md:mt-0 mx-4">
-                <a href="/" class="text-xs font-bold uppercase">Home Page</a>
-                <a href="/register" class="text-xs font-bold uppercase">Register</a>
+                @auth
+                    <span>
+                        Welcome, {{ auth()->user()->name }}!
+                    </span>
+                    {{-- logout --}}
+                    <form method="POST" action="/logout" class="inline p-3">
+                        @csrf
+                        <button type="submit" class="text-xs font-semibold text-blue-500">Log Out</button>
+                    </form>
+                    @else
+                        <a href="/register" class="text-xs font-bold uppercase">Register</a>
+                        <a href="/login" class="text-xs font-bold uppercase">Log In</a>
+                @endauth
+
+
 
 
                 <a href="#"
