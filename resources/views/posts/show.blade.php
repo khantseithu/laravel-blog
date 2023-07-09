@@ -54,6 +54,10 @@
                 </div>
 
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
+                    {{-- Comment form --}}
+                    @include('posts._add-comment-form')
+
+                    {{-- Existing comments --}}
                     @foreach ($post->comments as $comment)
                         <x-article-comment :comment="$comment" />
                     @endforeach
