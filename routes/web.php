@@ -24,19 +24,6 @@ use Illuminate\Support\Facades\File;
 |
 */
 
-Route::get('/ping', function () {
-    $client = new \MailchimpMarketing\ApiClient();
-
-    $client->setConfig([
-        'apiKey' => config('services.mailchimp.key'),
-        'server' => 'us17',
-    ]);
-
-    $response = $client->lists->getList("020a8d95ef");
-
-    // ddd($response);
-});
-
 Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
@@ -51,3 +38,6 @@ Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
 Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 
 Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
+
+Route::get('/admin/posts/create', [PostController::class, 'create'])->middleware('admin');
+Route::post('/admin/posts', [PostController::class, 'store'])->middleware('admin');

@@ -21,4 +21,26 @@ class PostController extends Controller
             'post' => $post,
         ]);
     }
+
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    public function store()
+    {
+        $attributes = request()->validate([
+            'title' => 'required',
+            'slug' => 'required|unique:posts',
+            'excerpt' => 'required',
+            'body' => 'required',
+            'category_id' => ['required', 'exists:categories,id'],
+        ]);
+
+        $attributes['user_id'] = auth()->id();
+
+        Post::create($attributes);
+
+        return redirect('/');
+    }
 }
